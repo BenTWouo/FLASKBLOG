@@ -1,15 +1,24 @@
 {% extends "layout.html" %}
+<!-- 繼承 layout.html 模板，保持統一的頁面佈局和樣式 -->
+
 {% block content %}
+    <!-- 定義 content 區塊的內容，這部分會替換 layout.html 中的 {% block content %} -->
     {% for post in posts %}
+        <!-- 使用 for 迴圈，動態遍歷傳遞進來的 posts 列表，依次渲染每篇文章 -->
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
+              <!-- 顯示文章作者 -->
               <a class="mr-2" href="#">{{ post.author }}</a>
+              <!-- 顯示文章發布日期 -->
               <small class="text-muted">{{ post.date_posted }}</small>
             </div>
+            <!-- 顯示文章標題，並包裹在超連結中 -->
             <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <!-- 顯示文章內容 -->
             <p class="article-content">{{ post.content }}</p>
           </div>
         </article>
     {% endfor %}
+    <!-- 結束 for 迴圈 -->
 {% endblock content %}
